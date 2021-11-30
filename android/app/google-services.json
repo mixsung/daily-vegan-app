@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "648504993596",
+    "project_id": "daily-vegan-app",
+    "storage_bucket": "daily-vegan-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:648504993596:android:d5b429da6fed338c1be039",
+        "android_client_info": {
+          "package_name": "com.example.daily_vegan_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "648504993596-va20c1icnp4bei44rroikdu9695m9tl6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfMxSPPYl_luwNABxg2_fqgsKFE8S4Wh4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "648504993596-va20c1icnp4bei44rroikdu9695m9tl6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
