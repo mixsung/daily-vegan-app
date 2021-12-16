@@ -1,5 +1,11 @@
 import 'package:daily_vegan_app/src/mainpages/homeScreen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:daily_vegan_app/src/pages/profile.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+
+import 'controller/authentication.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -8,6 +14,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
+
   List<BottomNavigationBarItem> bottomItems = [
     (BottomNavigationBarItem(
         label: '1번',
@@ -16,7 +23,7 @@ class _MainPageState extends State<MainPage> {
         label: '2번',
         icon: ImageIcon(AssetImage('assets/second_component.png'))),
     BottomNavigationBarItem(
-        label: '3번',
+        label: '늪페이지',
         icon: ImageIcon(
           AssetImage('assets/third_component.png'),
         )),
@@ -32,10 +39,9 @@ class _MainPageState extends State<MainPage> {
     Container(
       child: Center(child: Text('3번입니다')),
     ),
-    Container(
-      child: Center(child: Text('4번입니다')),
-    )
+    Profile(),
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

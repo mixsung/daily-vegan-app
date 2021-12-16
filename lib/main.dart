@@ -1,6 +1,7 @@
 import 'package:daily_vegan_app/src/app.dart';
 import 'package:daily_vegan_app/src/mainPage.dart';
 import 'package:daily_vegan_app/src/pages/onboarding.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:daily_vegan_app/utils/onboarding_preferences.dart';
 import 'package:flutter/services.dart';
@@ -24,6 +25,9 @@ void main() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   bool isFirst = prefs.getBool('isFirst') ?? true;
   _isFirst = isFirst;
+
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
 
   runApp(MyApp());
 }
