@@ -1,8 +1,11 @@
 import 'package:daily_vegan_app/src/mainpages/homeScreen.dart';
+import 'package:daily_vegan_app/src/pages/calendar.dart';
+import 'package:daily_vegan_app/src/pages/information.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:daily_vegan_app/src/pages/profile.dart';
+import 'package:daily_vegan_app/src/controller/authentication.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 import 'controller/authentication.dart';
@@ -31,14 +34,12 @@ class _MainPageState extends State<MainPage> {
         label: '4번', icon: ImageIcon(AssetImage('assets/last_component.png')))
   ];
 
+  // User? user = (await Authentication.signInWithGoogle(context: context));
+
   List pages = [
     HomeScreen(),
-    Container(
-      child: Center(child: Text('2번입니다')),
-    ),
-    Container(
-      child: Center(child: Text('3번입니다')),
-    ),
+    Calendar(),
+    Information(),
     Profile(),
   ];
 

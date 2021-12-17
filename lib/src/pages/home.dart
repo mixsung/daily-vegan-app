@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:daily_vegan_app/src/pages/login.dart';
 
 class Home extends StatelessWidget {
   // const Home({required Key key}) : super(key: key);

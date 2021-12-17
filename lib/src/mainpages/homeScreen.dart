@@ -29,6 +29,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // final oCcy = new NumberFormat("#, ###", "ko_KR");
+    // String calcStringToWon(String priceString) {
+    //   return "${oCcy.format(int.parse(priceString))}원";
+    // }
+    // 적용할 시
+    // Text(calcStringToWon(datas[index["price"]]))
+
     return Scaffold(
       body: SafeArea(
           child: SingleChildScrollView(

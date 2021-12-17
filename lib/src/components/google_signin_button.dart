@@ -1,4 +1,5 @@
 import 'package:daily_vegan_app/src/mainPage.dart';
+import 'package:daily_vegan_app/src/pages/profile.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:daily_vegan_app/src/controller/authentication.dart';
@@ -41,6 +42,7 @@ class _GoogleSignInButtonState extends State<GoogleSignInButton> {
                   if (user != null) {
                     Navigator.of(context).pushReplacement(
                       MaterialPageRoute(
+                        //MainPage() 에서 Profile()로 변경
                         builder: (context) => MainPage(),
                       ),
                     );
