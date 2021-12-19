@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:daily_vegan_app/utils/onboarding_preferences.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 bool _isFirst = true;
 
@@ -28,6 +29,8 @@ void main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+
+  initializeDateFormatting().then((_) => runApp(MyApp()));
 
   runApp(MyApp());
 }

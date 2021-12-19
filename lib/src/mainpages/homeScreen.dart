@@ -49,7 +49,18 @@ class _HomeScreenState extends State<HomeScreen> {
             ]),
             Divider(thickness: 1.0, color: Colors.black),
             // Container(),
-            SizedBox(height: 100.0),
+            SizedBox(height: 25.0),
+            Container(
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                color: Colors.grey.shade300,
+              ),
+              width: 150.0,
+              height: 150.0,
+              child: Icon(Icons.add_a_photo),
+              // width: MediaQuery.of(context).size.width,
+              // height: MediaQuery.of(context).size.height,
+            ),
             Row(children: <Widget>[
               SizedBox(width: 150.0),
               Text('채식인가요?', style: veganStyle),
