@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:daily_vegan_app/src/components/google_signin_button.dart';
+import 'package:daily_vegan_app/src/widgets/google_signin_button.dart';
 
 class SignInScreen extends StatefulWidget {
   @override
@@ -29,7 +29,6 @@ class _SignInScreenState extends State<SignInScreen> {
                         child: Text("Firebase load fail"),
                       );
                     }
-
                     if (snapshot.connectionState == ConnectionState.done) {
                       return GoogleSignInButton();
                     }

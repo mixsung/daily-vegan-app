@@ -1,4 +1,4 @@
-import 'package:daily_vegan_app/src/components/onboarding_check.dart';
+import 'package:daily_vegan_app/src/utils/onboarding_check.dart';
 import 'package:daily_vegan_app/src/controller/sign_in_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

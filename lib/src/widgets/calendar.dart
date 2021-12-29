@@ -1,7 +1,6 @@
-import 'package:daily_vegan_app/src/components/event.dart';
+import 'package:daily_vegan_app/src/utils/event.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
-import 'package:intl/intl.dart';
 
 class Calendar extends StatefulWidget {
   @override

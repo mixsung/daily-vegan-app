@@ -113,9 +113,16 @@ class _InformationState extends State<Information> {
       child: StreamBuilder<QuerySnapshot>(
           stream:
               FirebaseFirestore.instance.collection('information').snapshots(),
-          builder: (BuildContext context, AsyncSnapshot snapshot) {
-            if (!snapshot.hasData) {
-              return CircularProgressIndicator();
+          builder:
+              (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+            if (snapshot.hasError) {
+              return Center(
+                child: Text('Firebase load fail'),
+              );
+            }
+
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return Center(child: Text('Loading'));
             }
             return ListView.separated(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -132,7 +139,7 @@ class _InformationState extends State<Information> {
                       padding: const EdgeInsets.symmetric(vertical: 10),
                       child: Column(
                         children: [
-                          Text(snapshot.data.docs[index]['title'],
+                          Text(snapshot.data!.docs[index]['title'],
                               style: TextStyle(
                                   fontSize: 15.0,
                                   fontWeight: FontWeight.w700,
@@ -145,14 +152,15 @@ class _InformationState extends State<Information> {
                                 children: [
                                   Container(
                                       child: Image.network(
-                                          '${snapshot.data.docs[index]['image']}',
+                                          '${snapshot.data!.docs[index]['image']}',
                                           fit: BoxFit.fill),
                                       // width 90이 과연 옳은 것인가..
                                       width: 90),
                                   SizedBox(width: 10),
                                   Flexible(
                                     child: Text(
-                                        snapshot.data.docs[index]['description']
+                                        snapshot
+                                            .data!.docs[index]['description']
                                             .toString(),
                                         maxLines: 5,
                                         overflow: TextOverflow.ellipsis,
@@ -169,7 +177,7 @@ class _InformationState extends State<Information> {
                     ),
                   );
                 },
-                itemCount: snapshot.data.docs.length,
+                itemCount: snapshot.data!.docs.length,
                 separatorBuilder: (BuildContext _context, int index) {
                   return Container(
                       height: 1, color: Colors.black.withOpacity(0.4));

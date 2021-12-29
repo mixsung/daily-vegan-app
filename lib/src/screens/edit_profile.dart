@@ -1,4 +1,4 @@
-import 'package:daily_vegan_app/src/components/google_signin_button.dart';
+import 'package:daily_vegan_app/src/widgets/google_signin_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

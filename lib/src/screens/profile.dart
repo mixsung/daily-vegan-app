@@ -1,6 +1,5 @@
-import 'package:daily_vegan_app/src/components/google_signin_button.dart';
-import 'package:daily_vegan_app/src/pages/ask_profile.dart';
-import 'package:daily_vegan_app/src/pages/edit_profile.dart';
+import 'package:daily_vegan_app/src/widgets/google_signin_button.dart';
+import 'package:daily_vegan_app/src/screens/edit_profile.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:daily_vegan_app/src/controller/authentication.dart';
