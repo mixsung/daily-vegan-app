@@ -14,6 +14,7 @@ class Database {
     required String recipe,
     // required bool checked,
     required String date,
+    required String photoUrl,
   }) async {
     DocumentReference documentReferencer =
         _mainCollection.doc(userUid).collection('items').doc();
@@ -23,6 +24,7 @@ class Database {
       "recipe": recipe,
       // "checked": checked,
       "date": date,
+      "photoUrl": photoUrl
     };
 
     await documentReferencer
@@ -31,12 +33,12 @@ class Database {
         .catchError((e) => print(e));
   }
 
-  static Future<void> updateItem({
-    required String name,
-    required String recipe,
-    required String docId,
-    required String date,
-  }) async {
+  static Future<void> updateItem(
+      {required String name,
+      required String recipe,
+      required String docId,
+      required String date,
+      required String photoUrl}) async {
     DocumentReference documentReferencer =
         _mainCollection.doc(userUid).collection('items').doc(docId);
 
@@ -44,6 +46,7 @@ class Database {
       "name": name,
       "recipe": recipe,
       "date": date,
+      "photoUrl": photoUrl
     };
 
     await documentReferencer

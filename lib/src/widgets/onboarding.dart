@@ -3,8 +3,6 @@ import 'package:daily_vegan_app/src/controller/sign_in_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-import 'package:android_alarm_manager/android_alarm_manager.dart';
-import 'package:daily_vegan_app/src/app.dart';
 
 class OnBoarding extends StatelessWidget {
   @override
@@ -14,7 +12,7 @@ class OnBoarding extends StatelessWidget {
             PageViewModel(
                 titleWidget: Text('하루하루 기록하는 \n나만의 채식 일기',
                     style: TextStyle(
-                        fontSize: 36,
+                        fontSize: 29,
                         fontWeight: FontWeight.w700,
                         fontFamily: 'NotoSerifKR'),
                     textAlign: TextAlign.center),
@@ -27,7 +25,7 @@ class OnBoarding extends StatelessWidget {
             PageViewModel(
                 titleWidget: Text('목표로 하는 \n채식 유형을 알려주세요.',
                     style: TextStyle(
-                      fontSize: 28,
+                      fontSize: 25,
                       fontWeight: FontWeight.w700,
                       fontFamily: 'NotoSerifKR',
                     ),
@@ -63,7 +61,7 @@ class OnBoarding extends StatelessWidget {
                 title: '매일 하지 않아도 괜찮아요.',
                 body: '그냥 기록해보세요.',
                 footer: Container(
-                  width: 300,
+                  width: double.maxFinite,
                   height: 300,
                   child: SignInScreen(),
                 ),
@@ -115,18 +113,18 @@ class OnBoarding extends StatelessWidget {
 
   PageDecoration getPageDecorationSecond() => PageDecoration(
       titleTextStyle: TextStyle(
-        fontSize: 28,
+        fontSize: 25,
         fontWeight: FontWeight.w700,
         fontFamily: 'NotoSerifKR',
       ),
       bodyTextStyle: TextStyle(
-        fontSize: 28,
+        fontSize: 25,
         fontWeight: FontWeight.w700,
         fontFamily: 'NotoSerifKR',
       ));
 
   TextStyle getPageTextStyle() => TextStyle(
-      fontSize: 13, fontWeight: FontWeight.w700, fontFamily: 'NotoSerifKR');
+      fontSize: 10, fontWeight: FontWeight.w700, fontFamily: 'NotoSerifKR');
 
   void _veganTypeModalSheet(context) {
     showModalBottomSheet(

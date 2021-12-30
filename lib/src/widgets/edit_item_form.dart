@@ -1,4 +1,6 @@
+import 'package:daily_vegan_app/src/mainPage.dart';
 import 'package:daily_vegan_app/src/res/custom_form_field.dart';
+import 'package:daily_vegan_app/src/screens/dashboard_screen.dart';
 import 'package:daily_vegan_app/src/utils/database.dart';
 import 'package:daily_vegan_app/src/utils/validator.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +12,7 @@ class EditItemForm extends StatefulWidget {
   final String currentName;
   final String currentRecipe;
   final String documentId;
+  final String photoUrl;
 
   const EditItemForm({
     required this.nameFocusNode,
@@ -17,6 +20,7 @@ class EditItemForm extends StatefulWidget {
     required this.currentName,
     required this.currentRecipe,
     required this.documentId,
+    required this.photoUrl,
   });
 
   @override
@@ -31,7 +35,7 @@ class _EditItemFormState extends State<EditItemForm> {
   late TextEditingController _nameController;
   late TextEditingController _recipeController;
 
-  var createDate = DateFormat.yMd().add_jm().format(DateTime.now());
+  String createDate = DateFormat('yyyy.MM.dd').format(DateTime.now());
 
   @override
   void initState() {
@@ -72,7 +76,7 @@ class _EditItemFormState extends State<EditItemForm> {
                     value: value,
                   ),
                   label: 'Title',
-                  hint: 'Enter your note title',
+                  hint: '제목 또는 음식 이름',
                 ),
                 SizedBox(height: 24.0),
                 SizedBox(height: 8.0),
@@ -87,7 +91,7 @@ class _EditItemFormState extends State<EditItemForm> {
                     value: value,
                   ),
                   label: 'Description',
-                  hint: 'Enter your note description',
+                  hint: '짧은 기록, 레시피를 적어도 좋아요.',
                 ),
               ],
             ),
@@ -123,13 +127,16 @@ class _EditItemFormState extends State<EditItemForm> {
                             docId: widget.documentId,
                             name: _nameController.text,
                             recipe: _recipeController.text,
-                            date: createDate);
+                            date: createDate,
+                            photoUrl: widget.photoUrl);
 
                         setState(() {
                           _isProcessing = false;
                         });
 
-                        Navigator.of(context).pop();
+                        // Navigator.of(context).pop();
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => MainPage()));
                       }
                     },
                     child: Padding(

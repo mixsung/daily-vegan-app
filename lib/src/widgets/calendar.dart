@@ -1,3 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:daily_vegan_app/src/screens/specific_screen.dart';
+import 'package:daily_vegan_app/src/utils/database.dart';
 import 'package:daily_vegan_app/src/utils/event.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
@@ -8,6 +11,16 @@ class Calendar extends StatefulWidget {
 }
 
 class _CalendarState extends State<Calendar> {
+  getData() async {
+    var result = await FirebaseFirestore.instance
+        .collection('notes')
+        .doc(Database.userUid)
+        .collection('items')
+        .orderBy('createdAt', descending: true)
+        .get();
+    return result;
+  }
+
   late Map<DateTime, List<Event>> selectedEvents;
 
   CalendarFormat format = CalendarFormat.month;
@@ -20,9 +33,44 @@ class _CalendarState extends State<Calendar> {
     super.initState();
   }
 
-  List<Event> _getEventsfromDay(DateTime date) {
-    return selectedEvents[date] ?? [];
-  }
+  // List<Event> _getEventsfromDay(DateTime day) {
+  //   // return selectedEvents[date] ?? [];
+  //   StreamBuilder<QuerySnapshot>(
+  //       stream: Database.readItems(),
+  //       builder: (context, snapshot) {
+  //         if (snapshot.hasError) {
+  //           return Text('error');
+  //         } else if (snapshot.hasData || snapshot.data != null) {
+  //           return ListView.separated(
+  //               separatorBuilder: (context, index) => SizedBox(height: 5.0),
+  //               itemCount: snapshot.data!.docs.length,
+  //               itemBuilder: (context, index) {
+  //                 var noteInfo = snapshot.data!.docs[index].data()!;
+  //                 String docID = snapshot.data!.docs[index].id;
+  //                 String name = (noteInfo as dynamic)['name'];
+  //                 String recipe = (noteInfo as dynamic)['recipe'];
+  //                 String date = (noteInfo as dynamic)['date'];
+  //
+  //                 return Ink(
+  //                     child: ListTile(
+  //                   onTap: () => Navigator.of(context).push(
+  //                       // 수정 중
+  //                       MaterialPageRoute(
+  //                           builder: (context) => SpecificScreen(
+  //                                 currentName: name,
+  //                                 currentRecipe: recipe,
+  //                                 documentId: docID,
+  //                                 docDate: date,
+  //                               ))),
+  //                   title: Text(name),
+  //                   subtitle: Text(recipe),
+  //                 ));
+  //               });
+  //         }
+  //
+  //         return Text('loading');
+  //       });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -50,6 +98,7 @@ class _CalendarState extends State<Calendar> {
               focusedDay = focusDay;
             });
             print(focusedDay);
+            print(getData());
           },
           selectedDayPredicate: (DateTime date) {
             return isSameDay(selectedDay, date);

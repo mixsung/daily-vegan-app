@@ -1,3 +1,4 @@
+import 'package:daily_vegan_app/src/controller/push_manager.dart';
 import 'package:daily_vegan_app/src/mainPage.dart';
 import 'package:daily_vegan_app/src/widgets/onboarding.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -6,11 +7,12 @@ import 'package:daily_vegan_app/src/utils/onboarding_preferences.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 
 bool _isFirst = true;
-
 Future OnboardingBinding() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
@@ -19,9 +21,9 @@ Future OnboardingBinding() async {
   await OnboardingPreferences.init();
 }
 
+@override
 void main() async {
   await OnboardingBinding();
-
   SharedPreferences prefs = await SharedPreferences.getInstance();
   bool isFirst = prefs.getBool('isFirst') ?? true;
   _isFirst = isFirst;

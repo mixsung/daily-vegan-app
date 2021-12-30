@@ -2,15 +2,20 @@ import 'package:daily_vegan_app/src/utils/database.dart';
 import 'package:daily_vegan_app/src/widgets/edit_item_form.dart';
 import 'package:flutter/material.dart';
 
+import '../mainPage.dart';
+import 'dashboard_screen.dart';
+
 class EditScreen extends StatefulWidget {
   final String currentName;
   final String currentRecipe;
   final String documentId;
+  final String photoUrl;
 
   EditScreen({
     required this.currentName,
     required this.currentRecipe,
     required this.documentId,
+    required this.photoUrl,
   });
 
   @override
@@ -72,7 +77,9 @@ class _EditScreenState extends State<EditScreen> {
                         _isDeleting = false;
                       });
 
-                      Navigator.of(context).pop();
+                      // Navigator.of(context).pop();
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => MainPage()));
                     },
                   ),
           ],
@@ -90,6 +97,7 @@ class _EditScreenState extends State<EditScreen> {
               recipeFocusNode: _recipeFocusNode,
               currentName: widget.currentName,
               currentRecipe: widget.currentRecipe,
+              photoUrl: widget.photoUrl,
             ),
           ),
         ),
