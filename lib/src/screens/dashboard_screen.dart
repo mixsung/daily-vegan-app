@@ -2,16 +2,30 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:daily_vegan_app/src/widgets/item_list.dart';
 import 'package:flutter/material.dart';
 import 'package:daily_vegan_app/src/screens/add_screen.dart';
+import 'package:intl/intl.dart';
 
 class DashBoardScreen extends StatefulWidget {
   @override
   _DashBoardScreenState createState() => _DashBoardScreenState();
 }
 
+var createDate = DateFormat('yyyy.MM.dd').format(DateTime.now());
+
 class _DashBoardScreenState extends State<DashBoardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(createDate,
+            style: TextStyle(
+                fontFamily: 'NotoSerifKR',
+                fontWeight: FontWeight.w700,
+                fontSize: 30.0,
+                color: Colors.black)),
+        centerTitle: true,
+        elevation: 0,
+        backgroundColor: Colors.white,
+      ),
       backgroundColor: Colors.white,
       floatingActionButton: FloatingActionButton(
         onPressed: () {

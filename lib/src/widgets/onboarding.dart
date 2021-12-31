@@ -25,12 +25,11 @@ class OnBoarding extends StatelessWidget {
             PageViewModel(
                 titleWidget: Text('목표로 하는 \n채식 유형을 알려주세요.',
                     style: TextStyle(
-                      fontSize: 25,
+                      fontSize: 20,
                       fontWeight: FontWeight.w700,
                       fontFamily: 'NotoSerifKR',
                     ),
                     textAlign: TextAlign.center),
-                // title: '목표로 하는 채식 유형을 알려주세요.',
                 bodyWidget: OnboardingCheck(),
                 decoration: getPageDecorationSecond(),
                 footer: Row(
@@ -53,10 +52,29 @@ class OnBoarding extends StatelessWidget {
                   ],
                 )),
             PageViewModel(
-                title: '목표한 채식을 위해 알림 설정을 해주세요.',
-                bodyWidget: ElevatedButton(
-                    onPressed: () {}, child: Text("잊지 말고 다이어리 알람 받기")),
-                decoration: getPageDecorationSecond()),
+                title: '간단한 일기와 레시피를 기록해요.',
+                footer: Text(
+                  '맛있는 일기를 만들 수 있어요.',
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w600,
+                    fontFamily: 'NotoSerifKR',
+                  ),
+                ),
+                bodyWidget: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Image.network(
+                        "https://firebasestorage.googleapis.com/v0/b/daily-vegan-app.appspot.com/o/information_images%2Fscreenshot.jpeg?alt=media&token=26db6b8e-9b7c-4626-8b0d-9ca2df11ef19"),
+                  ],
+                ),
+                decoration: PageDecoration(
+                    titlePadding: EdgeInsets.all(25),
+                    titleTextStyle: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
+                      fontFamily: 'NotoSerifKR',
+                    ))),
             PageViewModel(
                 title: '매일 하지 않아도 괜찮아요.',
                 body: '그냥 기록해보세요.',
@@ -66,21 +84,6 @@ class OnBoarding extends StatelessWidget {
                   child: SignInScreen(),
                 ),
                 decoration: getPageDecorationSecond())
-            // PageViewModel(
-            //     title: '어떤 이유로 채식을 결심하게 되었나요?',
-            //     bodyWidget: SingleChildScrollView(
-            //       padding: EdgeInsets.only(top: 15.0),
-            //       child: TextField(
-            //         style: TextStyle(fontFamily: 'NotoSerifKR', fontSize: 15.0),
-            //         maxLines: null,
-            //         decoration: InputDecoration(
-            //             border: InputBorder.none,
-            //             contentPadding: EdgeInsets.symmetric(vertical: 40.0),
-            //             hintText: ' 환경을 위해 결심하게 되었어요.',
-            //             hintStyle: TextStyle(
-            //                 fontFamily: 'NotoSerifKR', fontSize: 15.0)),
-            //       ),
-            //     )),
           ],
           showNextButton: true,
           showDoneButton: false,
@@ -113,12 +116,12 @@ class OnBoarding extends StatelessWidget {
 
   PageDecoration getPageDecorationSecond() => PageDecoration(
       titleTextStyle: TextStyle(
-        fontSize: 25,
+        fontSize: 20,
         fontWeight: FontWeight.w700,
         fontFamily: 'NotoSerifKR',
       ),
       bodyTextStyle: TextStyle(
-        fontSize: 25,
+        fontSize: 20,
         fontWeight: FontWeight.w700,
         fontFamily: 'NotoSerifKR',
       ));

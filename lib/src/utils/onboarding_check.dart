@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class OnboardingCheck extends StatefulWidget {
   @override
@@ -8,6 +9,11 @@ class OnboardingCheck extends StatefulWidget {
 }
 
 class _OnboardingCheckState extends State<OnboardingCheck> {
+  static saveStr(String key, String message) async {
+    final SharedPreferences pref = await SharedPreferences.getInstance();
+    return pref.setString(key, message);
+  }
+
   String? checkboxListValue;
   List<String> checkboxList = ["플렉시", "폴로", "페스코", "락토오보", "오보", "락토", "비건"];
 
@@ -34,6 +40,10 @@ class _OnboardingCheckState extends State<OnboardingCheck> {
                         print(check);
                         setState(() => this.checkboxListValue = v);
                         print(checkboxListValue);
+                        //
+                        // final prefs = await SharedPreferences.getInstance();
+                        // prefs.setString('checkValue', checkboxListValue!);
+                        saveStr('checkValue', checkboxListValue!);
                       },
                       value: this.checkboxListValue == v ? true : false,
                     ),

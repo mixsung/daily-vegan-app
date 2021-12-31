@@ -85,15 +85,15 @@ class _ItemListState extends State<ItemList> {
                     style: TextStyle(
                         fontFamily: 'NotoSerifKR',
                         fontWeight: FontWeight.w600,
-                        fontSize: 18.0),
+                        fontSize: 15.0),
                   ),
                   subtitle: Text(
                     recipe,
-                    maxLines: 1,
+                    maxLines: 3,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
                         fontFamily: 'NotoSerifKR',
-                        fontSize: 15.0,
+                        fontSize: 13.0,
                         fontWeight: FontWeight.w400),
                   ),
                 ),

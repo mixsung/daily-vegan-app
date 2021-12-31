@@ -46,26 +46,43 @@ class _SpecificScreenState extends State<SpecificScreen> {
                   const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 20.0),
               child: Column(
                 children: [
-                  // DateTime dt = DateTime.parse(widget.docDate);
-                  //   print(dt);
-                  SizedBox(height: 24.0),
-                  Text(widget.docDate),
+                  SizedBox(height: 5.0),
+                  Container(
+                    alignment: Alignment.topCenter,
+                    child: Text(widget.docDate,
+                        style: TextStyle(
+                            fontFamily: 'NotoSerifKR',
+                            fontWeight: FontWeight.w700,
+                            fontSize: 30.0)),
+                  ),
+                  SizedBox(height: 5.0),
+                  Divider(thickness: 1, color: Colors.black),
                   SizedBox(height: 8.0),
                   Container(
+                      margin: EdgeInsets.all(10),
+                      height: 150,
                       child: Image.network(widget.photoUrl, fit: BoxFit.fill),
-                      width: 90),
-                  Text(widget.currentName,
-                      style: TextStyle(
-                          fontFamily: 'NotoSerifKR',
-                          fontWeight: FontWeight.w600,
-                          fontSize: 18.0)),
+                      width: 200),
+                  SizedBox(height: 24.0),
+                  Container(
+                    alignment: Alignment.topLeft,
+                    child: Text(widget.currentName,
+                        style: TextStyle(
+                            fontFamily: 'NotoSerifKR',
+                            fontWeight: FontWeight.w600,
+                            fontSize: 18.0)),
+                  ),
                   SizedBox(height: 24.0),
                   SizedBox(height: 8.0),
-                  Text(widget.currentRecipe,
-                      style: TextStyle(
-                          fontFamily: 'NotoSerifKR',
-                          fontWeight: FontWeight.w400,
-                          fontSize: 15.0)),
+                  Container(
+                    alignment: Alignment.topLeft,
+                    child: Text(widget.currentRecipe,
+                        style: TextStyle(
+                            fontFamily: 'NotoSerifKR',
+                            fontWeight: FontWeight.w400,
+                            fontSize: 13.0)),
+                  ),
+                  SizedBox(height: 50.0),
                   Container(
                     width: double.maxFinite,
                     child: ElevatedButton(

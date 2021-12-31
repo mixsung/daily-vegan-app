@@ -38,20 +38,11 @@ class _AddItemFormState extends State<AddItemForm> {
     });
   }
 
-  // Future getImage() async {
-  //   var image = await _picker.pickImage(source: ImageSource.camera);
-  //   setState(() {
-  //     _image = File(image!.path);
-  //   });
-  // }
-
   // 사진 찍어서 가져오기
   captureImageWithCamera() async {
     Navigator.pop(context);
     final imageFile = await _picker.pickImage(
         source: ImageSource.camera, maxWidth: 650, maxHeight: 300);
-    // final fDirectory = await getTemporaryDirectory();
-    // final path = fDirectory.path;
     setState(() {
       _image = File(imageFile!.path);
     });
@@ -118,6 +109,7 @@ class _AddItemFormState extends State<AddItemForm> {
                         child: IconButton(
                           icon: Icon(Icons.add_photo_alternate, size: 50),
                           color: Colors.grey,
+                          padding: EdgeInsets.all(50),
                           onPressed: () {
                             takeImage(context);
                           },
@@ -236,18 +228,36 @@ class _AddItemFormState extends State<AddItemForm> {
           return SimpleDialog(
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8.0)),
-            title: Text('New Post'),
+            title: Text('사진 업로드',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontFamily: 'NotoSerifKR',
+                    fontWeight: FontWeight.w700,
+                    fontSize: 15.0)),
             children: <Widget>[
               SimpleDialogOption(
-                child: Text('Capture Image with Camera'),
+                child: Text('사진 촬영',
+                    style: TextStyle(
+                        fontFamily: 'NotoSerifKR',
+                        fontWeight: FontWeight.w600,
+                        fontSize: 13.0)),
                 onPressed: captureImageWithCamera,
               ),
               SimpleDialogOption(
-                child: Text('Select Image with Gallery'),
+                child: Text('갤러리에서 사진 가져오기',
+                    style: TextStyle(
+                        fontFamily: 'NotoSerifKR',
+                        fontWeight: FontWeight.w600,
+                        fontSize: 13.0)),
                 onPressed: pickImageFromGallery,
               ),
               SimpleDialogOption(
-                child: Text('Cancel'),
+                child: Text('취소',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontFamily: 'NotoSerifKR',
+                        fontWeight: FontWeight.w700,
+                        fontSize: 15.0)),
                 onPressed: () => Navigator.pop(context),
               )
             ],
