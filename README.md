@@ -11,7 +11,7 @@ This app is not in Goolge play store.
 
 ### Download the APK
 
-In Github, Go to , choose the latest version and download the .apk file.
+In Github, Go to [daily_vegan-flutter-app release](https://github.com/mixsung/daily-vegan-app/releases/tag/v0.0.1-alpha), choose the latest version and download the .apk file.
 
 ### Install the APK
 On your Android phone,
